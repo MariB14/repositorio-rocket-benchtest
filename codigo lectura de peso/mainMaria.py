@@ -26,7 +26,7 @@ def module_init():
     GPIO.setup(RST_PIN, GPIO.OUT)
     GPIO.setup(CS_PIN, GPIO.OUT)
     GPIO.setup(DRDY_PIN, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-    GPIO.setup(RELAY_PIN, GPIO.OUT, initial=GPIO.HIGH)
+    GPIO.setup(RELAY_PIN, GPIO.OUT, initial=GPIO.LOW)
     print(f"🔧 RELAY_PIN {RELAY_PIN} configurado como OUTPUT")
     SPI.max_speed_hz, SPI.mode = 20000, 0b01
     return 0
@@ -414,10 +414,10 @@ def modo_prueba():
     # TEST MANUAL DEL RELAY
     print("\n🔧 TEST DEL RELAY:")
     print("Activando relay por 3 segundos...")
-    GPIO.output(RELAY_PIN, GPIO.LOW)
+    GPIO.output(RELAY_PIN, GPIO.HIGH)
     print(f"Estado GPIO después de HIGH: {GPIO.input(RELAY_PIN)}")
     time.sleep(3)
-    GPIO.output(RELAY_PIN, GPIO.HIGH)
+    GPIO.output(RELAY_PIN, GPIO.LOW)
     print(f"Estado GPIO después de LOW: {GPIO.input(RELAY_PIN)}")
     test_ok = input("¿Se activó el relay correctamente? (s/n): ").strip().lower()
     
