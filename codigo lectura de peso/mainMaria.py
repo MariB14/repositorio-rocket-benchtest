@@ -524,6 +524,7 @@ def modo_prueba():
                 # Display con countdown visual
                 if t < timer_ignicion:
                     countdown = timer_ignicion - t
+          
                     print(f"⏳ t={t:6.2f}s | COUNTDOWN: {countdown:5.1f}s | "
                           f"V={ema_val:8.3f}mV | F={fuerza_kgf:9.2f}kgf | "
                           f"Relay={relay_status}", end='\r')
